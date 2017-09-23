@@ -1,0 +1,20 @@
+server:
+  port: 8763
+
+eureka:
+  instance:
+    statusPageUrlPath: ${management.contextPath}/info
+    healthCheckUrlPath: ${management.contextPath}/health
+    metadataMap:
+          instanceId: ${spring.application.name}:${random.value}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jackelee1990/nood-config-repo
