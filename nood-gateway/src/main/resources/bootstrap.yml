@@ -1,3 +1,8 @@
 spring:
   application:
     name: nood-gateway
+  http:
+    encoding: { charset: UTF-8, enable: true, force: true }
+info:
+  name: nood-gateway
+  author: singh

@@ -1,9 +1,6 @@
 server:
   port: 8762
 
-sidecar:
-  port: 8762
-
 endpoints:
   restart:
     enabled: true

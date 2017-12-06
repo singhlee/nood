@@ -1,3 +1,18 @@
 spring:
   application:
     name: nood-config
+  cloud:
+    config:
+      server:
+        git:
+          timeout: 60000
+          clone-on-start: true
+          search-paths: /*
+          uri: https://github.com/jackelee1990/nood-config-repo
+          username: jackelee1990
+          password: 3edc#EDC
+  http:
+    encoding: { charset: UTF-8, enable: true, force: true }
+info:
+  name: nood-config
+  author: singh
