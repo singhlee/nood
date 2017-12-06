@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: nood-center
+  http:
+    encoding: { charset: UTF-8, enable: true, force: true }
+info:
+  name: nood-center
+  author: singh
