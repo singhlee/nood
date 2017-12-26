@@ -7,12 +7,11 @@
 	<version>0.0.1</version>
 	<packaging>pom</packaging>
 	<name>nood</name>
-	<description>nood project for Spring Boot</description>
+	<description>菜鸟后台系统</description>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.8.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,6 +25,7 @@
 		<module>nood-gateway</module>
 		<module>nood-sys-web</module>
 		<module>nood-sys-service</module>
+		<module>nood-code</module>
 	</modules>
 
 	<developers>

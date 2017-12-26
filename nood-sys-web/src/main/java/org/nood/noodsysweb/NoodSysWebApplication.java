@@ -18,6 +18,7 @@ public class NoodSysWebApplication {
 	}
 
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(NoodSysWebApplication.class, args);
 	}

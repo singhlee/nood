@@ -3,12 +3,13 @@ spring:
     name: nood-config
   cloud:
     config:
+      label: master
       server:
         git:
           timeout: 60000
           clone-on-start: true
           search-paths: /*
-          uri: https://github.com/jackelee1990/nood-config-repo
+          uri: https://github.com/jackelee1990/nood-config-repo.git
           username: jackelee1990
           password: 3edc#EDC
   http:
