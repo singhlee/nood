@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@EnableDiscoveryClient
+
 @EnableConfigServer
 @SpringBootApplication
 public class ConfigApplication
@@ -17,8 +17,6 @@ public class ConfigApplication
     public static void main( String[] args )
 
     {
-        SpringApplication application = new SpringApplication(ConfigApplication.class);
-        ApplicationContext applicationContext = application.run(args);
-        System.out.println(applicationContext.getClass());
+        SpringApplication.run(ConfigApplication.class, args);
     }
 }

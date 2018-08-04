@@ -1,17 +1,13 @@
 spring:
   application:
     name: nood-config
+  profiles:
+    active: native
   cloud:
     config:
-      label: master
       server:
-        git:
-          timeout: 60000
-          clone-on-start: true
-          search-paths: /*
-          uri: https://github.com/jackelee1990/nood-config-repo.git
-          username: jackelee1990
-          password: 3edc#EDC
+        native:
+          search-locations: E:\work\idea\myproject\nood-config-repo
   http:
     encoding: { charset: UTF-8, enable: true, force: true }
 info:
