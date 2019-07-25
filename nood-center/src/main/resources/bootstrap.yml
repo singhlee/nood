@@ -3,7 +3,7 @@ spring:
     name: nood-center
   http:
     encoding: { charset: UTF-8, enable: true, force: true }
-
-info:
-  name: nood-center
-  author: singh
+  security:
+    user:
+      name: admin
+      password: 1qaz2WSX

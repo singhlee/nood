@@ -1,6 +1,7 @@
-package org.nood.conf;
+package org.nood.config;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * @author XinLi
  * @version V1.0
  */
+@EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {

@@ -1,15 +1,9 @@
 spring:
   application:
     name: nood-config
-  profiles:
-    active: native
-  cloud:
-    config:
-      server:
-        native:
-          search-locations: E:\work\idea\myproject\nood-config-repo
   http:
     encoding: { charset: UTF-8, enable: true, force: true }
-info:
-  name: nood-config
-  author: singh
+  security:
+    user:
+      name: admin
+      password: 1qaz2WSX

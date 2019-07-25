@@ -1,10 +1,31 @@
+info:
+  description: 配置服务
+
 server:
-  port: 8763
+  port: 8762
+  tomcat:
+    uri-encoding: UTF-8
 
 logging:
   level:
     root: INFO
-    com.netflix.discovery: 'OFF'
-    org.springframework.cloud: 'DEBUG'
+
+spring:
+   profiles:
+      active: native
+   cloud:
+      config:
+         server:
+            native:
+              search-locations: E:/work/idea/myproject/nood-config-repo
 
 
+eureka:
+  instance:
+    preferIpAddress: true
+    instanceId: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:8761/eureka/
