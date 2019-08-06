@@ -7,8 +7,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>nood-center</artifactId>
-    <packaging>jar</packaging>
     <name>nood-center</name>
+    <version>0.0.1</version>
     <description>注册中心</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,42 +20,31 @@
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-config</artifactId>-->
+        <!--<groupId>org.springframework.cloud</groupId>-->
+        <!--<artifactId>spring-cloud-starter-config</artifactId>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
     </dependencies>
 
 
     <build>
         <plugins>
-            <!--<plugin>-->
-                <!--<groupId>com.spotify</groupId>-->
-                <!--<artifactId>docker-maven-plugin</artifactId>-->
-                <!--<version>0.2.3</version>-->
-                <!--<configuration>-->
-                    <!--<baseImage>openjdk:7-jre-alpine</baseImage>-->
-                    <!--<imageName>nood/${project.artifactId}</imageName>-->
-                    <!--<exposes>8761</exposes>-->
-                    <!--<entryPoint>["java", "-Djava.security.egd=file:/dev/./urandom", "-jar",-->
-                        <!--"/${project.build.finalName}.jar"]-->
-                    <!--</entryPoint>-->
-                    <!--<resources>-->
-                        <!--<resource>-->
-                            <!--<targetPath>/</targetPath>-->
-                            <!--<directory>${project.build.directory}</directory>-->
-                            <!--<include>${project.build.finalName}.jar</include>-->
-                        <!--</resource>-->
-                    <!--</resources>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -66,6 +55,30 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- Docker maven plugin -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <!-- docker私服的地址 -->
+                    <dockerHost>http://148.70.23.139:2375</dockerHost>
+                    <!--镜像名称以及版本号-->
+                    <imageName>nood-center:1.0.0</imageName>
+                    <!--依赖的基础镜像-->
+                    <baseImage>java</baseImage>
+                    <!--Dockerfile的位置 -->
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                    <!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
             </plugin>
         </plugins>
     </build>

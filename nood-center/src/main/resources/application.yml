@@ -17,16 +17,21 @@ eureka:
   dashboard:
     enabled: true
   server:
-    enableSelfPreservation: false # 关闭自我保护
-    waitTimeInMsWhenSyncEmpty: 30000
-    renewalPercentThreshold: 0.49
-    renewalThresholdUpdateIntervalMs: 10000
+    enable-self-preservation: false # 关闭自我保护
     peer-eureka-nodes-update-interval-ms: 10000
+    peer-node-read-timeout-ms: 10000
+    wait-time-in-ms-when-sync-empty: 0
+    renewal-threshold-update-interval-ms: 10000
   instance:
     preferIpAddress: true
+    status-page-url-path: /swagger-ui.html
   client:
-    registerWithEureka: false #false:不作为一个客户端注册到注册中心
-    fetchRegistry: false  #为true时，可以启动，但报异常：Cannot execute
+    fetch-registry: false
+    register-with-eureka: false
+    registry-fetch-interval-seconds: 30
+#    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
 
 
 

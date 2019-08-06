@@ -59,11 +59,6 @@
 				<version>${mybatis.srping.boot.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>druid</artifactId>
-				<version>${alibaba.druid.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql.version}</version>
@@ -93,13 +88,13 @@
 			<dependency>
 				<groupId>io.jsonwebtoken</groupId>
 				<artifactId>jjwt</artifactId>
-				<version>0.7.0</version>
+				<version>0.9.0</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
-		<finalName>${project.artifactId}</finalName>
+		<!--<finalName>${project.artifactId}</finalName>-->
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -121,7 +116,6 @@
 						<execution>
 							<goals>
 								<goal>repackage</goal>
-								<goal>build-info</goal>
 							</goals>
 						</execution>
 					</executions>

@@ -7,8 +7,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>nood-config</artifactId>
-    <packaging>jar</packaging>
     <name>nood-config</name>
+    <version>0.0.1</version>
     <description>配置服务</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,6 +29,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-security</artifactId>-->
+        <!--</dependency>-->
     </dependencies>
     <build>
         <plugins>
@@ -42,6 +46,30 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- Docker maven plugin -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <!-- docker私服的地址 -->
+                    <dockerHost>http://148.70.23.139:2375</dockerHost>
+                    <!--镜像名称以及版本号-->
+                    <imageName>nood-config:1.0.0</imageName>
+                    <!--依赖的基础镜像-->
+                    <baseImage>java</baseImage>
+                    <!--Dockerfile的位置 -->
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                    <!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
             </plugin>
         </plugins>
     </build>
