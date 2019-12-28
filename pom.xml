@@ -28,13 +28,13 @@
 		<springfox.swagger2.version>2.7.0</springfox.swagger2.version>
 		<lombok.version>1.16.20</lombok.version>
 	</properties>
-	<modules>
-		<module>nood-center/nood-eureka</module>
-		<module>nood-config</module>
-		<module>nood-gateway</module>
-		<module>nood-code</module>
-        <module>nood-auth</module>
-    </modules>
+<!--	<modules>-->
+<!--		<module>nood-center/nood-eureka</module>-->
+<!--		<module>nood-config</module>-->
+<!--		<module>nood-gateway</module>-->
+<!--		<module>nood-code</module>-->
+<!--        <module>nood-auth</module>-->
+<!--    </modules>-->
 
 	<developers>
 		<developer>

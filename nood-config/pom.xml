@@ -15,9 +15,13 @@
     </properties>
 
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         </dependency>
         <!--生产准备特性,监控-->
         <dependency>
@@ -48,29 +52,29 @@
                 </executions>
             </plugin>
             <!-- Docker maven plugin -->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <configuration>
-                    <!-- docker私服的地址 -->
-                    <dockerHost>http://148.70.23.139:2375</dockerHost>
-                    <!--镜像名称以及版本号-->
-                    <imageName>nood-config:1.0.0</imageName>
-                    <!--依赖的基础镜像-->
-                    <baseImage>java</baseImage>
-                    <!--Dockerfile的位置 -->
-                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-                    <!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>com.spotify</groupId>-->
+<!--                <artifactId>docker-maven-plugin</artifactId>-->
+<!--                <version>1.0.0</version>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash; docker私服的地址 &ndash;&gt;-->
+<!--                    <dockerHost>http://148.70.23.139:2375</dockerHost>-->
+<!--                    &lt;!&ndash;镜像名称以及版本号&ndash;&gt;-->
+<!--                    <imageName>nood-config:1.0.0</imageName>-->
+<!--                    &lt;!&ndash;依赖的基础镜像&ndash;&gt;-->
+<!--                    <baseImage>java</baseImage>-->
+<!--                    &lt;!&ndash;Dockerfile的位置 &ndash;&gt;-->
+<!--                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>-->
+<!--                    &lt;!&ndash; 这里是复制 jar 包到 docker 容器指定目录配置 &ndash;&gt;-->
+<!--                    <resources>-->
+<!--                        <resource>-->
+<!--                            <targetPath>/</targetPath>-->
+<!--                            <directory>${project.build.directory}</directory>-->
+<!--                            <include>${project.build.finalName}.jar</include>-->
+<!--                        </resource>-->
+<!--                    </resources>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 
