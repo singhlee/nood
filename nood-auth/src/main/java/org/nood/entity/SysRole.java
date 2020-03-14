@@ -1,32 +1,41 @@
 package org.nood.entity;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * @ProjectName: nood
- * @Package: org.nood.entity
- * @ClassName: SysUserRole
- * @Author: LX
- * @Description:
- * @Date: 2019/7/29 15:29
- * @Version: 1.0
- */
+ * @program: nood
+ * @description:
+ * @author: singhlee
+ * @create: 2020-03-11 16:47
+ **/
 @Entity
-@Getter
+@Table(name = "sys_role")
 @Setter
-public class SysRole {
+@Getter
+public class SysRole implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id",length = 10)
+    private Integer id;
+    @Column(name = "role_name")
+    private String roleName;
+    @ManyToMany(mappedBy = "roles" ,fetch = FetchType.EAGER)
+    private Set<SysUser> users = new HashSet<>(0);
 
-    private String name;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "sys_role_menu",
+            joinColumns = @JoinColumn(name="role_id"),
+            inverseJoinColumns = @JoinColumn(name = "menu_id"))
+    private Set<SysMenu> menus = new HashSet<>(0);
 
-    private String remark;
 
-    private Byte delFlag;
 }
