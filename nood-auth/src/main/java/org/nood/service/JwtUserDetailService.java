@@ -44,7 +44,7 @@ public class JwtUserDetailService implements UserDetailsService {
             log.error(e.getMessage(),e);
             throw new UsernameNotFoundException("该用户不存在");
         }
-        return  new JwtUserDetails(sysUser.getId(),sysUser.getUserName(),sysUser.getUserPwd(), sysUser.getRoles());
+        return  new JwtUserDetails(sysUser.getId(),sysUser.getUserName(),sysUser.getPassword(), sysUser.getRoles());
     }
 
 

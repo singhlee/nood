@@ -29,7 +29,7 @@ public class SysUser implements Serializable {
     @Column(name = "user_name")
     private String userName;
     @Column(name = "user_pwd")
-    private String userPwd;
+    private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "sys_user_role",

@@ -20,9 +20,9 @@ import java.util.Set;
 public class JwtUserDetails implements UserDetails {
 
     private Integer userId;
-    private String userName;
+    private String username;
 
-    private String userPwd;
+    private String password;
 
     private Set<SysRole> authorities;
 
@@ -31,10 +31,10 @@ public class JwtUserDetails implements UserDetails {
     private  boolean credentialsNonExpired;
     private  boolean enabled;
 
-    public JwtUserDetails(Integer userId,String userName,String userPwd,Set<SysRole> authorities){
+    public JwtUserDetails(Integer userId,String username,String password,Set<SysRole> authorities){
         this.userId = userId;
-        this.userName = userName;
-        this.userPwd = userPwd;
+        this.username = username;
+        this.password = password;
         this.authorities = authorities;
         this.accountNonExpired = true;
         this.accountNonLocked = true;
@@ -55,12 +55,12 @@ public class JwtUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return userPwd;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     @Override

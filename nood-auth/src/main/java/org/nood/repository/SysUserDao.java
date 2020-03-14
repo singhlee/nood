@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 public interface SysUserDao extends JpaRepository<SysUser,Integer> {
     /**
      * 查询用户信息
-     * @Author: zengzr
+     * @Author: singhlee
      * @Date: 2019/3/27
      * @param userName
      * @return SysUser
