@@ -6,7 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -35,7 +37,7 @@ public class SysUser implements Serializable {
     @JoinTable(name = "sys_user_role",
             joinColumns = @JoinColumn(name="user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<SysRole> roles = new HashSet<>(0);
+    private List<SysRole> roles = new ArrayList<>();
 
 
 }

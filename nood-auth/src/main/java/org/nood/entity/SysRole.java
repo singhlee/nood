@@ -6,7 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -29,13 +31,13 @@ public class SysRole implements Serializable {
     @Column(name = "role_name")
     private String roleName;
     @ManyToMany(mappedBy = "roles" ,fetch = FetchType.EAGER)
-    private Set<SysUser> users = new HashSet<>(0);
+    private List<SysUser> users = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "sys_role_menu",
             joinColumns = @JoinColumn(name="role_id"),
             inverseJoinColumns = @JoinColumn(name = "menu_id"))
-    private Set<SysMenu> menus = new HashSet<>(0);
+    private List<SysMenu> menus = new ArrayList<>();
 
 
 }

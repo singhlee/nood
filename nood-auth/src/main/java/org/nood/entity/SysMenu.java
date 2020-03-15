@@ -4,7 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -29,7 +31,7 @@ public class SysMenu implements Serializable {
     private String menuUrl;
 
     @ManyToMany(mappedBy = "menus" ,fetch = FetchType.EAGER)
-    private Set<SysRole> roles = new HashSet<>(0);
+    private List<SysRole> roles = new ArrayList<>();
 
 
 

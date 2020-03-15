@@ -73,7 +73,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     private UserLogoutSuccessHandler userLogoutSuccessHandler;
 
-    private UserAuthenticationProvider userAuthenticationProvider;
+//    private UserAuthenticationProvider userAuthenticationProvider;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth)throws Exception{
@@ -113,6 +113,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.formLogin()
                 //loginProcessingUrl用于指定前后端分离的时候调用后台登录接口的名称
                 .loginProcessingUrl("/login")
+                .usernameParameter("username")
+                .passwordParameter("password")
                 //配置登录成功的自定义处理类
                 .successHandler(authenticationSuccessHandler)
                 //配置登录失败的自定义处理类
@@ -174,8 +176,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void setUserLogoutSuccessHandler(UserLogoutSuccessHandler userLogoutSuccessHandler) {
         this.userLogoutSuccessHandler = userLogoutSuccessHandler;
     }
-    @Autowired
-    public void setAuthenticationProvider(UserAuthenticationProvider userAuthenticationProvider) {
-        this.userAuthenticationProvider = userAuthenticationProvider;
-    }
+//    @Autowired
+//    public void setAuthenticationProvider(UserAuthenticationProvider userAuthenticationProvider) {
+//        this.userAuthenticationProvider = userAuthenticationProvider;
+//    }
 }

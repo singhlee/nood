@@ -31,11 +31,11 @@ public class JwtUserDetailService implements UserDetailsService {
      * @Cacheable 缓存
      */
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         SysUser sysUser = null;
 
         try {
-             sysUser = sysUserDao.findSysUserByUserName(userName);
+             sysUser = sysUserDao.findSysUserByUserName(username);
             if(sysUser == null){
                 //仍需要细化处理
                 throw new UsernameNotFoundException("该用户不存在");

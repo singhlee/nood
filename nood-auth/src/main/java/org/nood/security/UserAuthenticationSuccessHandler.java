@@ -43,7 +43,7 @@ public class UserAuthenticationSuccessHandler  implements AuthenticationSuccessH
         jwtTokenUtil.setTokenRefresh(jwtToken,userDetails.getUsername(),ip);
         log.info("用户{}登录成功，信息已保存至redis",userDetails.getUsername());
         httpServletResponse.setContentType("application/json;charset=UTF-8");
-        httpServletResponse.getWriter().write(JSON.toJSONString(Result.succeed("登录成功")));
+        httpServletResponse.getWriter().write(JSON.toJSONString(Result.succeed(jwtToken,"登录成功")));
     }
 
     @Autowired
